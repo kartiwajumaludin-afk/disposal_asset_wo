@@ -1,0 +1,91 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS sp_upsert_ticket_raw $$
+
+CREATE PROCEDURE sp_upsert_ticket_raw()
+BEGIN
+    INSERT INTO ticket_raw (
+        `Ticket Number`,
+        `Ticket Sub Type Name`,
+        `Ticket Status Name`,
+        `Regional`,
+        `Network Operation and Productivity`,
+        `Teritory Operation`,
+        `Site ID`,
+        `Site Name`,
+        `Assignee Group`,
+        `Assignee`,
+        `Ticket Summary`,
+        `Ticket Created Date`,
+        `Ticket Resolved Date`,
+        `Ticket Cleared Date`,
+        `Working Permit Number`,
+        `Working Permit Status Name`,
+        `Working Permit Status Text`,
+        `Working Permit Activity Name`,
+        `Working Permit Activity Description`,
+        `Working Permit Activity Category`,
+        `Site Owner`,
+        `Working Permit Start Date`,
+        `Working Permit End Date`,
+        `Working Permit Updated Date`,
+        `SIK Number`,
+        `SIK Status Name`
+    )
+    SELECT
+        s.`Ticket Number`,
+        s.`Ticket Sub Type Name`,
+        s.`Ticket Status Name`,
+        s.`Regional`,
+        s.`Network Operation and Productivity`,
+        s.`Teritory Operation`,
+        s.`Site ID`,
+        s.`Site Name`,
+        s.`Assignee Group`,
+        s.`Assignee`,
+        s.`Ticket Summary`,
+        s.`Ticket Created Date`,
+        s.`Ticket Resolved Date`,
+        s.`Ticket Cleared Date`,
+        s.`Working Permit Number`,
+        s.`Working Permit Status Name`,
+        s.`Working Permit Status Text`,
+        s.`Working Permit Activity Name`,
+        s.`Working Permit Activity Description`,
+        s.`Working Permit Activity Category`,
+        s.`Site Owner`,
+        s.`Working Permit Start Date`,
+        s.`Working Permit End Date`,
+        s.`Working Permit Updated Date`,
+        s.`SIK Number`,
+        s.`SIK Status Name`
+    FROM ticket_raw_stg s
+    ON DUPLICATE KEY UPDATE
+        `Ticket Sub Type Name`                = VALUES(`Ticket Sub Type Name`),
+        `Ticket Status Name`                  = VALUES(`Ticket Status Name`),
+        `Regional`                            = VALUES(`Regional`),
+        `Network Operation and Productivity`  = VALUES(`Network Operation and Productivity`),
+        `Teritory Operation`                  = VALUES(`Teritory Operation`),
+        `Site ID`                             = VALUES(`Site ID`),
+        `Site Name`                           = VALUES(`Site Name`),
+        `Assignee Group`                      = VALUES(`Assignee Group`),
+        `Assignee`                            = VALUES(`Assignee`),
+        `Ticket Summary`                      = VALUES(`Ticket Summary`),
+        `Ticket Created Date`                 = VALUES(`Ticket Created Date`),
+        `Ticket Resolved Date`                = VALUES(`Ticket Resolved Date`),
+        `Ticket Cleared Date`                 = VALUES(`Ticket Cleared Date`),
+        `Working Permit Number`               = VALUES(`Working Permit Number`),
+        `Working Permit Status Name`          = VALUES(`Working Permit Status Name`),
+        `Working Permit Status Text`          = VALUES(`Working Permit Status Text`),
+        `Working Permit Activity Name`        = VALUES(`Working Permit Activity Name`),
+        `Working Permit Activity Description` = VALUES(`Working Permit Activity Description`),
+        `Working Permit Activity Category`    = VALUES(`Working Permit Activity Category`),
+        `Site Owner`                          = VALUES(`Site Owner`),
+        `Working Permit Start Date`           = VALUES(`Working Permit Start Date`),
+        `Working Permit End Date`             = VALUES(`Working Permit End Date`),
+        `Working Permit Updated Date`         = VALUES(`Working Permit Updated Date`),
+        `SIK Number`                          = VALUES(`SIK Number`),
+        `SIK Status Name`                     = VALUES(`SIK Status Name`);
+END $$
+
+DELIMITER ;
