@@ -2,40 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">are.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <!-- SIDEBAR FIXED -->
-        <nav class="sidebar">
-            <!-- NAVIGATION ICONS -->
-            <div class="nav-icons">
-                <div class="nav-icon active" data-menu="main">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <span class="icon-label">Write-Off</span>
-                </div>
-                
-                <div class="nav-icon" data-menu="dashboard">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <span class="icon-label">Dashboard</span>
-                </div>
-                
-                <div class="nav-icon" data-menu="boq">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <span class="icon-label">BoQ</span>
-                </div>
-                
-                <div class="nav-icon" data-menu="tracker">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <span class="icon-label">Tracker
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>DISPOSAL ASSET - WRITE OFF</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style_dark_aesthetic.css') }}">
@@ -43,9 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- SIDEBAR FIXED -->
         <nav class="sidebar">
-            <!-- NAVIGATION ICONS -->
             <div class="nav-icons">
                 <div class="nav-icon active" data-menu="main">
                     <div class="icon-wrapper">
@@ -53,49 +18,18 @@
                     </div>
                     <span class="icon-label">Write-Off</span>
                 </div>
-                
                 <div class="nav-icon" data-menu="dashboard">
                     <div class="icon-wrapper">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
                     <span class="icon-label">Dashboard</span>
                 </div>
-                
                 <div class="nav-icon" data-menu="boq">
                     <div class="icon-wrapper">
-                        </span>
-                </div>
-            </div>
-
-            <!-- SPACE KOSONG UNTUK LOGO -->
-            <div class="logo-space"></div>
-        </nav>
-
-        <!-- CONTENT WRAPPER -->
-        <div class="content-wrapper">
-            <!-- MAIN CONTENT -->
-            <main class="main-content">
-                <!-- HEADER -->
-                <header class="main-header">
-                    <div class="header-left">
-                        <h1 class="header-title">Project Management Tool</h1>
-                        <div class="header-subtitle">
-                            dibuat oleh <span class="rgb-text">{{ config('app.author', 'Kartiwa Jumaludin') }}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="header-right">
-                        <div class="user-profile-header">
-                            <div class="user-avatar-small">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div class="user-info">
-                                <div class="user-name">{{ auth()->user()->name ?? 'Guest User' }}</div>
-                                <div class="user-role">{{ auth()->user()->role ?? 'System<i class="fas fa-calculator"></i>
+                        <i class="fas fa-calculator"></i>
                     </div>
                     <span class="icon-label">BoQ</span>
                 </div>
-                
                 <div class="nav-icon" data-menu="tracker">
                     <div class="icon-wrapper">
                         <i class="fas fa-shipping-fast"></i>
@@ -103,170 +37,61 @@
                     <span class="icon-label">Tracker</span>
                 </div>
             </div>
-
-            <!-- SPACE KOSONG UNTUK LOGO -->
             <div class="logo-space"></div>
         </nav>
-
-        <!-- CONTENT WRAPPER -->
         <div class="content-wrapper">
-            <!-- MAIN CONTENT -->
             <main class="main-content">
-                <!-- HEADER -->
                 <header class="main-header">
                     <div class="header-left">
                         <h1 class="header-title">Project Management Tool</h1>
                         <div class="header-subtitle">
-                            dibuat oleh <span class="rgb-text">{{ auth()->user()->name ?? 'Kartiwa Jumaludin' }}</span>
+                            dibuat oleh <span class="rgb-text">Kartiwa Jumaludin</span>
                         </div>
                     </div>
-                    
                     <div class="header-right">
-                        <div class="user-profile-header Admin' }}</div>
+                        <div class="user-profile-header">
+                            <div class="user-avatar-small">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name">Guest User</div>
+                                <div class="user-role">System Admin</div>
                             </div>
                         </div>
-                        @auth
-                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="logout-btn">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Logout
-                            </button>
-                        </form>
-                        @else
-                        <a href="{{ route('login') }}" class="logout-btn">
-                            <i class="fas fa-sign-in-alt"></i>
-                            Login
-                        </a>
-                        @endauth
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
                     </div>
                 </header>
-
-                <!-- MENU + SUBMENU CONTAINER -->
                 <div class="menu-submenu-container">
-                    <!-- MAIN MENU -->
                     <div class="main-menu-wrapper">
                         <div class="main-menu" id="mainMenuTitle">
                             Dismantle Asset Write-Off
                         </div>
                     </div>
-                    
-                    <!-- SUBMENU TABS -->
-                    <div class="submenu-container">
-                        <div class="submenu-tabs">
-                            <div class="submenu-tab active"">
-                            <div class="user-avatar-small">
-                                <i class="fas fa-user-circle"></i>
-                            </div>
-                            <div class="user-info">
-                                <div class="user-name">{{ auth()->user()->name ?? 'Guest User' }}</div>
-                                <div class="user-role">{{ auth()->user()->role ?? 'System Admin' }}</div>
-                            </div>
-                        </div>
-                        @auth
-                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                            @csrf
-                            <button type="submit" class="logout-btn">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Logout
-                            </button>
-                        </form>
-                        @else
-                        <a href="{{ route('login') }}" class="logout-btn">
-                            <i class="fas fa-sign-in-alt"></i>
-                            Login
-                        </a>
-                        @endauth
-                    </div>
-                </header>
-
-                <!-- MENU + SUBMENU CONTAINER -->
-                <div class="menu-submenu-container">
-                    <!-- MAIN MENU -->
-                    <div class="main-menu-wrapper">
-                        <div class="main-menu" data-submenu="tracker" style="--tab-color: #00b4d8;">
-                                <i class="fas fa-satellite-dish"></i>
-                                <span>Tracker</span>
-                            </div>
-                            
-                            <div class="submenu-tab" data-submenu="asset" style="--tab-color: #06d6a0;">
-                                <i class="fas fa-box"></i>
-                                <span>Asset</span>
-                            </div>
-                            
-                            <div class="submenu-tab" data-submenu="workinfo" style="--tab-color: #ffd43b;">
-                                <i class="fas fa-clipboard-list"></i>
-                                <span>Workinfo</span>
-                            </div>
-                            
-                            <div class="submenu-tab" data-submenu="daily" style="--tab-color: #9d4edd;">
-                                <i class="fas fa-running"></i>
-                                <span>Daily Activity</span>
-                            </div>
-                            
-                            <a href="{{ route('csv.batch.import') }}" class="submenu-tab" data-submenu="import" style="--tab-color: #ff6b6b; text-decoration: none; color: inherit;">
-                                <i class="fas fa-file-import"></i>
-                                <span id="mainMenuTitle">
-                            Dismantle Asset Write-Off
-                        </div>
-                    </div>
-                    
-                    <!-- SUBMENU TABS -->
                     <div class="submenu-container">
                         <div class="submenu-tabs">
                             <div class="submenu-tab active" data-submenu="tracker" style="--tab-color: #00b4d8;">
                                 <i class="fas fa-satellite-dish"></i>
                                 <span>Tracker</span>
                             </div>
-                            
                             <div class="submenu-tab" data-submenu="asset" style="--tab-color: #06d6a0;">
                                 <i class="fas fa-box"></i>
                                 <span>Asset</span>
                             </div>
-                            
                             <div class="submenu-tab" data-submenu="workinfo" style="--tab-color: #ffd43b;">
                                 <i class="fas fa-clipboard-list"></i>
                                 <span>Workinfo</span>
                             </div>
-                            
                             <div class="submenu-tab" data-submenu="daily" style="--tab-color: #9d4edd;">
                                 <i class="fas fa-running"></i>
-                                <span>Import CSV</span>
-                            </a>
-                            
-                            <div class="submenu-tab" data-submenu="procedures" style="--tab-color: #f72585;">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Run Procedures</span>
+                                <span>Daily Activity</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DASHBOARD CONTENT -->
-                <div class="dashboard-content">
-                    <!-- LEFT PANEL -->
-                    <div class="left-panel">
-                        <!-- QUICK FILTERS -->
-                        <div class="panel-card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-filter"></i> Quick Filters</h3>
-                            </div>
-                            <div class="card-body">
-                                <!-- REGION FILTER -->
-                                <div class="filter-section">
-                                    <label>Region</label>
-                                    <div class="region-container">
-                                        <div class="region-chip" data-region="all">All Region</div>
-                                        @for ($i = 1; $i <= 12; $i++)
-                                        <div class="region-chip" data-region="{{ $i }}">Region {{ $i }}</div>
-                >Daily Activity</span>
-                            </div>
-                            
                             <a href="{{ route('csv.batch.import') }}" class="submenu-tab" data-submenu="import" style="--tab-color: #ff6b6b; text-decoration: none; color: inherit;">
                                 <i class="fas fa-file-import"></i>
                                 <span>Import CSV</span>
                             </a>
-                            
                             <div class="submenu-tab" data-submenu="procedures" style="--tab-color: #f72585;">
                                 <i class="fas fa-play-circle"></i>
                                 <span>Run Procedures</span>
@@ -274,46 +99,15 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- DASHBOARD CONTENT -->
                 <div class="dashboard-content">
-                    <!-- LEFT PANEL -->
                     <div class="left-panel">
-                        <!-- QUICK FILTERS -->
                         <div class="panel-card">
                             <div class="card-header">
                                 <h3><i class="fas fa-filter"></i> Quick Filters</h3>
                             </div>
                             <div class="card-body">
-                                <!-- REGION FILTER -->
                                 <div class="filter-section">
-                                    <label>                        @endfor
-                                    </div>
-                                </div>
-                                
-                                <!-- TICKET STATUS -->
-                                <div class="filter-section">
-                                    <label>Ticket Status</label>
-                                    <select class="filter-dropdown" id="ticketStatus">
-                                        <option value="all">All Status</option>
-                                        <option value="pending">Pending</option>
-                                        <option value="completed">Completed</option>
-                                        <option value="active">Active</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- TICKET SUMMARY -->
-                                <div class="filter-section">
-                                    <label>Ticket Summary</label>
-                                    <select class="filter-dropdown" id="ticketSummary">
-                                        <option value="all">All Batches</option>
-                                        <option value="batch-2024-01">PO-BATCH-2024-01</option>
-                                        <option value="batch-2024-02">PO-BATCH-2024-02</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- NOP -->
-                                <div class="filterRegion</label>
+                                    <label>Region</label>
                                     <div class="region-container">
                                         <div class="region-chip" data-region="all">All Region</div>
                                         <div class="region-chip" data-region="1">Region 1</div>
@@ -330,35 +124,8 @@
                                         <div class="region-chip" data-region="12">Region 12</div>
                                     </div>
                                 </div>
-                                
-                                <!-- TICKET STATUS -->
                                 <div class="filter-section">
-                                    <label>Ticket Status</label>-section">
-                                    <label>NOP</label>
-                                    <select class="filter-dropdown" id="nop">
-                                        <option value="all">All NOP</option>
-                                        <option value="balikpapan">NOP Balikpapan</option>
-                                        <option value="samarinda">NOP Samarinda</option>
-                                        <option value="pontianak">NOP Pontianak</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- DATE RANGE -->
-                                <div class="filter-section">
-                                    <label>Date Range</label>
-                                    <div class="date-inputs">
-                                        <input type="date" class="date-input" id="startDate">
-                                        <span class="date-separator">to</span>
-                                        <input type="date" class="date-input" id="endDate">
-                                    </div>
-                                </div>
-                                
-                                <!-- SEARCH -->
-                                <div class="filter-section">
-                                    <label>Search Ticket/Site</label>
-                                    <div class="search-container">
-                                        <i class="fas fa-search"></i>
-                                        <input type="text" id="globalSearch" placeholder="Search ticket
+                                    <label>Ticket Status</label>
                                     <select class="filter-dropdown" id="ticketStatus">
                                         <option value="all">All Status</option>
                                         <option value="pending">Pending</option>
@@ -366,8 +133,6 @@
                                         <option value="active">Active</option>
                                     </select>
                                 </div>
-                                
-                                <!-- TICKET SUMMARY -->
                                 <div class="filter-section">
                                     <label>Ticket Summary</label>
                                     <select class="filter-dropdown" id="ticketSummary">
@@ -376,20 +141,33 @@
                                         <option value="batch-2024-02">PO-BATCH-2024-02</option>
                                     </select>
                                 </div>
-                                
-                                <!-- NOP -->
                                 <div class="filter-section">
                                     <label>NOP</label>
                                     <select class="filter-dropdown" id="nop">
                                         <option value="all">All NOP</option>
-                                        <option value="balikp, site, asset...">
+                                        <option value="balikpapan">NOP Balikpapan</option>
+                                        <option value="samarinda">NOP Samarinda</option>
+                                        <option value="pontianak">NOP Pontianak</option>
+                                    </select>
+                                </div>
+                                <div class="filter-section">
+                                    <label>Date Range</label>
+                                    <div class="date-inputs">
+                                        <input type="date" class="date-input" id="startDate">
+                                        <span class="date-separator">to</span>
+                                        <input type="date" class="date-input" id="endDate">
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <label>Search Ticket/Site</label>
+                                    <div class="search-container">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" id="globalSearch" placeholder="Search ticket, site, asset...">
                                         <button class="clear-search" title="Clear">
                                             <i class="fas fa-times"></i>
                                         </button>
                                     </div>
                                 </div>
-                                
-                                <!-- FILTER ACTIONS -->
                                 <div class="filter-actions">
                                     <button class="filter-apply-btn">
                                         <i class="fas fa-filter"></i>
@@ -403,43 +181,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- RIGHT PANEL -->
                     <div class="right-panel">
-                        <!-- TABLE HEADER -->
                         <div class="table-header">
                             <div class="table-title">
                                 <h2><i class="fas fa-table"></i> Tracker Records</h2>
                                 <div class="table-subtitle">Showing 50 of 1,247 active records</div>
                             </div>
-                            
-                            <div class="table-apan">NOP Balikpapan</option>
-                                        <option value="samarinda">NOP Samarinda</option>
-                                        <option value="pontianak">NOP Pontianak</option>
-                                    </select>
-                                </div>
-                                
-                                <!-- DATE RANGE -->
-                                <div class="filter-section">
-                                    <label>Date Range</label>
-                                    <div class="date-inputs">
-                                        <input type="date" class="date-input" id="startDate">
-                                        <span class="date-separator">to</span>
-                                        <input type="date" class="date-input" id="endDate">
-                                    </div>
-                                </div>
-                                
-                                <!-- SEARCH -->
-                                <div class="filter-section">
-                                    <label>Search Ticket/Site</label>
-                                    <div class="search-container">
-                                        <i class="fas fa-search"></i>
-                                        <input type="text" id="globalSearch" placeholder="Search ticket, site, asset...">
-                                        <button class="clear-search" title="Clear">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                actions">
+                            <div class="table-actions">
                                 <div class="search-box">
                                     <i class="fas fa-search"></i>
                                     <input type="text" placeholder="Search in table...">
@@ -450,8 +198,6 @@
                                 </button>
                             </div>
                         </div>
-
-                        <!-- DATA TABLE -->
                         <div class="table-container">
                             <table class="data-table">
                                 <thead>
@@ -468,36 +214,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="table-body">
-                                    <!-- Data akan diisi oleh JavaScript atau backen</div>
-                                
-                                <!-- FILTER ACTIONS -->
-                                <div class="filter-actions">
-                                    <button class="filter-apply-btn">
-                                        <i class="fas fa-filter"></i>
-                                        Apply Filters
-                                    </button>
-                                    <button class="filter-clear-btn">
-                                        <i class="fas fa-times"></i>
-                                        Clear All
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT PANEL -->
-                    <div class="right-panel">
-                        <!-- TABLE HEADER -->
-                        <div class="table-header">
-                            <div class="table-title">
-                                <h2><i class="fas fa-table"></i> Tracker Records</h2>
-                                <div class="table-subtitle">Showing 50 of 1,247 active records</div>
-                            </div>
-                            
-                            <div class="table-actions">
-                                <div class="search-box">
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="Search in table...d -->
                                     <tr>
                                         <td colspan="9" style="text-align: center; padding: 2rem;">
                                             <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: #00b4d8;"></i>
@@ -507,60 +223,25 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        <!-- TABLE FOOTER -->
                         <div class="table-footer">
                             <div class="pagination-info">
                                 Page <strong>1</strong> of <strong>25</strong> • Showing <strong>50</strong> entries
                             </div>
-                            
                             <div class="pagination-controls">
                                 <button class="page-btn prev-btn" disabled>
                                     <i class="fas fa-chevron-left"></i>
                                 </button>
-                                
                                 <div class="page-numbers">
                                     <span class="page-number active">1</span>
                                     <span class="page-number">2</span>
                                     <span class="page-number">3</span>
-                                    ">
-                                </div>
-                                <button class="action-btn export-btn">
-                                    <i class="fas fa-file-export"></i>
-                                    Export
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- DATA TABLE -->
-                        <div class="table-container">
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Ticket #</th>
-                                        <th>Site Name</th>
-                                        <th>Asset Code</th>
-                                        <th>Ticket Status</th>
-                                        <th>Region</th>
-                                        <th>Start Date</th>
-                                        <th>Last Update</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                    <tr>
-                                        <td colspan="9" style="text-align: center; padding: 40px;">
-                                            <i class="fas fa-database" style="font-size: 48px; color: #666; margin-bottom: 16px;"></i>
-                                <span class="page-dots">...</span>
+                                    <span class="page-dots">...</span>
                                     <span class="page-number">25</span>
                                 </div>
-                                
                                 <button class="page-btn next-btn">
                                     <i class="fas fa-chevron-right"></i>
                                 </button>
                             </div>
-                            
                             <div class="page-size">
                                 <select id="pageSize">
                                     <option value="10">10 rows</option>
@@ -575,44 +256,6 @@
             </main>
         </div>
     </div>
-
     <script src="{{ asset('assets/js/script_dark_aesthetic.js') }}"></script>
 </body>
 </html>
-C. SAVE FILE
-Press: Ctrl + S
-
-D. CHECK GITHUB DESKTOP
-Balik ke GitHub Desktop:
-
-Tab "Changes" akan show:
-
-Code
-☑ resources/views/index.blade.php
-   New file (+            <p style="color: #999; font-size: 16px;">No data available</p>
-                                            <p style="color: #666; font-size: 14px;">Upload CSV files to populate tracker data</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- TABLE FOOTER -->
-                        <div class="table-footer">
-                            <div class="pagination-info">
-                                Page <strong>1</strong> of <strong>1</strong> • Showing <strong>0</strong> entries
-                            </div>
-                            
-                            <div class="pagination-controls">
-                                <button class="page-btn prev-btn" disabled>
-                                    <i class="fas fa-chevron-left"></i>
-                                </button>
-                                
-                                <div class="page-numbers">
-                                    <span class="page-number active">1</span>
-                                </div>
-                                
-                                <button class="page-btn next-btn" disabled>
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
