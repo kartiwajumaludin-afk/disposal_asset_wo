@@ -2,13 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssetController;
+use App\Http\Controllers\CsvBatchImportController;
+use App\Livewire\CsvBatchUpload;
 
-// Redirect halaman depan ke Dashboard
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+/*
+|--------------------------------------------------------------------------
+| CSV Batch Import Routes (Native - No Livewire)
+|--------------------------------------------------------------------------
+*/
+Route::get('/csv-batch-import', function () {
+    return view('csv-batch-import');
+})->name('csv.batch.import');
 
-// Grup Route untuk Asset Management
+Route::post('/csv-batch-import/process', [CsvBatchImportController::class, 'process'])
+    ->name('csv.batch.import.process');
+
+/*
+|--------------------------------------------------------------------------
+| CSV Import (Livewire) - OLD VERSION
+|--------------------------------------------------------------------------
+*/
+Route::get('/import', CsvBatchUpload::class)->name('import.index');
+
+/*
+|--------------------------------------------------------------------------
+| Asset Management Routes
+|--------------------------------------------------------------------------
+*/
 Route::controller(AssetController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/assets', 'index')->name('asset.index');
@@ -18,4 +38,13 @@ Route::controller(AssetController::class)->group(function () {
     Route::get('/assets/sitemap', 'sitemap')->name('asset.sitemap');
     Route::get('/assets/boq', 'boq')->name('asset.boq');
     Route::get('/assets/inbound', 'inbound')->name('asset.inbound');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Redirect Root to Dashboard
+|--------------------------------------------------------------------------
+*/
+Route::get('/', function () {
+    return redirect()->route('dashboard');
 });
